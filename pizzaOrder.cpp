@@ -10,9 +10,11 @@ int main() {
 	int numberOfToppings = 0;
 
 	string firstName;
-	string crust = "Hand-tossed";
-	//string toppings = "Cheese";
-	string toppings[6];
+	string crust = "Hand-Tossed";
+	string toppings;
+
+	string t1,t2,t3,t4,t5;
+	
 
 	double tax;
 	double cost = 12.99;
@@ -37,6 +39,7 @@ int main() {
 	cout << "10, 12, 14 or 16 inches (enter the number only): \n";
 	cin >> inches;
 	cout << endl;
+
 	if (inches == 10 ) {
 		cost = 10.99;
 
@@ -62,30 +65,40 @@ int main() {
 		"(D) Deep-Dish \n Enter H, T or D:   ";
 	cin >> crustType;
 	cout << endl;
-	if (crustType == 'H' || crustType == 'h') {
+
+	switch (crustType)
+	{
+	case'H':
+	case'h':
 		crust = "Hand-Tossed";
+		break;
 
-	}
-	if (crustType == 'T' || crustType == 't') {
+	case'T':
+	case't':
 		crust = "Thin-Crust";
+		break;
 
-	}
-	if (crustType == 'D' || crustType == 'd') {
+	case'D':
+	case'd':
 		crust = "Deep-Dish";
+		break;
 
+	default:
+		cout << "That input is not available. A Hand-Tossed crust will be made" << endl;
 	}
 
 	cout << "All pizzas come with cheese.\n";
-	toppings[0] == "Cheese";
+	t1 = "Cheese\n";
 	cout << "Additional toppings are $1.25 each,\n" <<
 		"Choose from: Pepperoni, Sausage, Onion, Mushroom\n";
 	cout << "";
 
 	cout << "Do you want Pepperoni?   (Y/N):   ";
 	cin >> choice;
+
 	if (choice == 'Y' || choice == 'y') {
 		numberOfToppings += 1;
-		toppings[1] == "Pepperoni";
+		t2 = "Pepperoni\n";
 	
 	}
 
@@ -93,7 +106,7 @@ int main() {
 	cin >> choice;
 	if (choice == 'Y' || choice == 'y') {
 		numberOfToppings += 1;
-		toppings[2] == "Sausage";
+		t3 = "Sausage\n";
 
 	}
 
@@ -101,7 +114,7 @@ int main() {
 	cin >> choice;
 	if (choice == 'Y' || choice == 'y') {
 		numberOfToppings += 1;
-		toppings[3] == "Onions";
+		t4 = "Onions\n";
 
 	}
 
@@ -109,7 +122,7 @@ int main() {
 	cin >> choice;
 	if (choice == 'Y' || choice == 'y') {
 		numberOfToppings += 1;
-		toppings[4] ==  "Mushroom";
+		t5 =  "Mushroom\n";
 
 	}
 
@@ -118,8 +131,10 @@ int main() {
 	cout << endl;
 	cout << "Hello "<< firstName << ". Your order is as follows:\n" << endl;
 	cout << inches << " Inch pizza\n";
-	cout << crust << " crust\n";
-	cout << toppings[0]<<" " << toppings[1] << " " << toppings[2] << " " << toppings[3] << " " << toppings[4] << endl;
+	cout << crust << endl;
+	toppings = t1 + t2 + t3 + t4 + t5;
+
+	cout << "With: " << toppings << endl;
 
 	cout << "The cost of your order is: $ " << cost << endl;
 	tax = cost * TAX_RATE;
